@@ -17,4 +17,4 @@ print(tree.printTree(tree, "postorder"))
 #     /   \     /  \
 #    4     5   6    7
 
-# Post order traversal will print 1-2-4-5-3-6-7-
+# Post order traversal will print 4-2-5-6-3-7-1

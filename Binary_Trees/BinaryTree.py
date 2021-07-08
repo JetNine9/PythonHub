@@ -10,7 +10,9 @@ class BinaryTree(object):
         if traversal_type == "preorder":
             return self.preorder_print(tree.root, "")
         elif traversal_type == "postorder":
-            return self.postorder_print(tree.root, "")    
+            return self.postorder_print(tree.root, "")
+        elif traversal_type == "inorder":
+            return self.inorder_print(tree.root, "")    
         else: 
             print("Traversal type is not supported")
             return False    
@@ -30,9 +32,19 @@ class BinaryTree(object):
         """start from left -> right -> root"""
 
         if start: 
-            traversal = self.preorder_print(start.left, traversal)
-            traversal = self.preorder_print(start.right, traversal)
+            traversal = self.postorder_print(start.left, traversal)
+            traversal = self.postorder_print(start.right, traversal)
             traversal += (str(start.value) + "-")
-        return traversal        
+        return traversal     
+
+    #algorithm for in-order traversal
+    def inorder_print(self, start, traversal):
+        """start from left -> root -> riight"""
+
+        if start:
+            traversal = self.inorder_print(start.left, traversal) 
+            traversal += (str(start.value) + "-")  
+            traversal = self.inorder_print(start.right, traversal)
+        return traversal    
 
 
